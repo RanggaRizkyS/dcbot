@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
  const client = new Discord.Client({ disableMentions: 'everyone' });
- require("http").createServer((_, res) => res.end("Acroga Online!")).listen(process.env.PORT || 8080)
 const Eco = require("quick.eco");
 client.eco = new Eco.Manager(); // quick.eco
 client.db = Eco.db; // quick.db
@@ -134,3 +133,4 @@ fs.readdir("./commands/", (err, files) => {
 
 
 client.login(client.config.token);
+require("http").createServer((_, res) => res.end("Acroga Online!")).listen(8080)

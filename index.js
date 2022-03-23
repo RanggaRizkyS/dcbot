@@ -133,6 +133,9 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 guilds.guildsTotal = ${client.guilds.cache.size};
+fs.writeFile("./guilds.json", JSON.stringify(guilds), function(err){
+    if(err) console.log(err)
+})
 
 client.login(process.env.TOKEN);
 require("http").createServer((_, res) => res.end("Acroga Online!")).listen(process.env.PORT || 8080)

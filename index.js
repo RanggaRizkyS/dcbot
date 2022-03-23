@@ -139,6 +139,7 @@ const guildsMany = {
 };
 
 const data = JSON.stringify(guildsMany);
+
 fs.writeFile('guilds.json', data, (err) => {
     if (err) {
         throw err;

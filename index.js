@@ -4,7 +4,6 @@ const Eco = require("quick.eco");
 client.eco = new Eco.Manager(); // quick.eco
 client.db = Eco.db; // quick.db
 client.config = require("./botConfig");
-const guilds = require('guilds.json')
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.shop = {

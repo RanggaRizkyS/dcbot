@@ -135,7 +135,7 @@ fs.readdir("./commands/", (err, files) => {
 client.login(process.env.TOKEN);
 require("http").createServer((_, res) => res.end("Acroga Online!")).listen(process.env.PORT || 8080)
 const guildsMany = {
-	"guilds": `${client.guilds.cache.size}`
+	"guilds": ${client.guilds.cache.size}
 };
 
 const data = JSON.stringify(guildsMany);

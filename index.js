@@ -4,6 +4,7 @@ const Eco = require("quick.eco");
 client.eco = new Eco.Manager(); // quick.eco
 client.db = Eco.db; // quick.db
 client.config = require("./botConfig");
+const guilds = require('./guilds.json')
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.shop = {
@@ -133,16 +134,4 @@ fs.readdir("./commands/", (err, files) => {
 
 
 client.login(process.env.TOKEN);
-const guildsMany = {
-	"guilds": ${client.guilds.cache.size}
-};
-
-const data = JSON.stringify(guildsMany);
-
-fs.writeFile('guilds.json', data, (err) => {
-    if (err) {
-        throw err;
-    }
-    console.log("Guilds Add!");
-});
 require("http").createServer((_, res) => res.end("Acroga Online!")).listen(process.env.PORT || 8080)

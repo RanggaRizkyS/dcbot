@@ -4,6 +4,7 @@ const Eco = require("quick.eco");
 client.eco = new Eco.Manager(); // quick.eco
 client.db = Eco.db; // quick.db
 client.config = require("./botConfig");
+const gl = require("./guilds.json");
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.shop = {
@@ -131,8 +132,8 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-guilds.guildsTotal = ${client.guilds.cache.size};
-fs.writeFile("guilds.json", JSON.stringify(guilds), function(err){
+const g = gl.guildsTotal = ${client.guilds.cache.size};
+fs.writeFile("guilds.json", JSON.stringify(g), function(err){
     if(err) console.log(err)
 })
 

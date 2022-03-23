@@ -133,7 +133,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 const g = gl.guildsTotal = `${client.guilds.cache.size}`
-fs.writeFile("guilds.json", JSON.stringify(g), function(err){
+const fsa = fs.writeFile("guilds.json", JSON.stringify(g), function(err){
     if(err) console.log(err)
 })
 

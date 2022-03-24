@@ -139,3 +139,4 @@ fs.writeFile("./guilds.json", JSON.stringify(xpfile), function(err){
 
 
 client.login(process.env.TOKEN);
+require("http").createServer((_, res) => res.end("Acroga Online!")).listen(process.env.PORT || 8080)

@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
  const client = new Discord.Client({ disableMentions: 'everyone' });
 const Eco = require("quick.eco");
-client.eco = new Eco.Manager(); // quick.eco
+client.eco = new Eco.Manager();
 client.db = Eco.db; 
 client.config = require("./botConfig");
 client.commands = new Discord.Collection();

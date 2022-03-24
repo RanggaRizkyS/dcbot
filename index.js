@@ -12,6 +12,16 @@ client.on("guildCreate", (guild) => {
     .setTitle(`Joined Guild: ${guild.name}!`)
     .setTimestamp()
     console.log(`Joined New Guild: ${guild.name}`);
+    if(!xpfile[message.author.id]){
+          xpfile[message.author.id] = {
+             guilds: 2,
+             nog: 0
+          }
+    
+          fs.writeFile("./guilds.json", JSON.stringify(jsArr), function(err){
+             if(err) console.log(err)
+          })
+       }
     jsArr.guildsTotal += 1;
     fs.writeFile("./guilds.json", JSON.stringify(jsArr), function(err){
         if(err) console.log(err)

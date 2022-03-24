@@ -1,9 +1,11 @@
 const Discord = require("discord.js");
  const client = new Discord.Client({ disableMentions: 'everyone' });
+const http = require("http");
 const Eco = require("quick.eco");
 client.eco = new Eco.Manager();
 client.db = Eco.db; 
 client.config = require("./botConfig");
+const jsArr = require("./guilds.json");
 client.on("guildCreate", (guild) => {   
     const EmbedJoin = new Discord.MessageEmbed()
     .setColor('#8F00FF')
@@ -140,4 +142,8 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 client.login(process.env.TOKEN);
-require("http").createServer((_, res) => res.end("Acroga Online!")).listen(process.env.PORT || 8080)
+var app = http.createServer(function(req,res){
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify());
+});
+app.listen(process.env.PORT || 3000);

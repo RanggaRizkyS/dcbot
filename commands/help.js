@@ -6,7 +6,7 @@ exports.execute = async (client, message, args) => {
         .addFields(
 	    { name: "Economy 🪙", value: "**daily, weekly, work**" },
 	    { name: "Pet 🦬", value: "**zoo, zooshop, zoobuy, hunting**" },
-	    { name: "System 🛠", value: "**ping, help**" },
+	    { name: "System 🛠", value: "**ping, prefix, help**" },
 	    { name: "Admin 🧰", value: "**addmoney, setmoney**" },
 	)
         .setColor("#8F00FF")

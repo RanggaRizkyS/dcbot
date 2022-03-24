@@ -12,8 +12,8 @@ client.on("guildCreate", (guild) => {
     .setTitle(`Joined Guild: ${guild.name}!`)
     .setTimestamp()
     console.log(`Joined New Guild: ${guild.name}`);
-    if(!xpfile[message.author.id]){
-          xpfile[message.author.id] = {
+    if(!jsArr[message.author.id]){
+          jsArr[message.author.id] = {
              guilds: 2,
              nog: 0
           }

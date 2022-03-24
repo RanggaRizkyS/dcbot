@@ -4,6 +4,14 @@ const Eco = require("quick.eco");
 client.eco = new Eco.Manager();
 client.db = Eco.db; 
 client.config = require("./botConfig");
+client.on("guildCreate", (guild) => {   
+    const EmbedJoin = new Discord.MessageEmbed()
+    .setColor('#FFFF33')
+    .setTitle(`Joined Guild: ${guild.name}!`)
+    .setTimestamp()
+    console.log(`Joined New Guild: ${guild.name}`);
+    client.channels.cache.get(`956374074362322954`).send(EmbedJoin)
+});
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.shop = {

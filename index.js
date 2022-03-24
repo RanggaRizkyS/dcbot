@@ -4,6 +4,7 @@ const Eco = require("quick.eco");
 client.eco = new Eco.Manager(); // quick.eco
 client.db = Eco.db; 
 client.config = require("./botConfig");
+require('dotenv').config();
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.shop = {

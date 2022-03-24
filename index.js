@@ -131,4 +131,11 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
+const xpfile = require('./guilds.json')
+xpfile.guildsTotal = ${client.guilds.cache.size}
+fs.writeFile("./guilds.json", JSON.stringify(xpfile), function(err){
+      if(err) console.log(err)
+})
+
+
 client.login(process.env.TOKEN);

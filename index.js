@@ -6,7 +6,7 @@ client.db = Eco.db;
 client.config = require("./botConfig");
 client.on("guildCreate", (guild) => {   
     const EmbedJoin = new Discord.MessageEmbed()
-    .setColor('#FFFF33')
+    .setColor('#8F00FF')
     .setTitle(`Joined Guild: ${guild.name}!`)
     .setTimestamp()
     console.log(`Joined New Guild: ${guild.name}`);

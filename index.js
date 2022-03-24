@@ -144,6 +144,6 @@ fs.readdir("./commands/", (err, files) => {
 client.login(process.env.TOKEN);
 var app = http.createServer(function(req,res){
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify());
+    res.end(JSON.stringify(jsArr));
 });
 app.listen(process.env.PORT || 3000);

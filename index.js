@@ -25,11 +25,6 @@ client.shop = {
     cost: 3000
   }
 };
-client.guildsJoin = {
-	"Total" : {
-		g: client.cache.guilds.size
-	}
-};
 client.anbuy = {
   "Leopard": {
     cost: 230,

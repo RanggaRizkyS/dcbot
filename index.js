@@ -13,6 +13,9 @@ client.on("guildCreate", (guild) => {
     .setTimestamp()
     console.log(`Joined New Guild: ${guild.name}`);
     jsArr.guildsTotal += 1;
+    fs.writeFile("./guilds.json", JSON.stringify(jsArr), function(err){
+        if(err) console.log(err)
+    })
     client.channels.cache.get(`956374074362322954`).send(EmbedJoin)
 });
 client.commands = new Discord.Collection();

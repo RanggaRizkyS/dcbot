@@ -144,12 +144,5 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-const xpfile = "./guilds.json".guildsTotal = client.guilds.cache.size
-xpfile.guildsTotal = client.guilds.cache.size
-fs.writeFile("./guilds.json", JSON.stringify(xpfile), function(err){
-      if(err) console.log(err)
-})
-
-
 client.login(process.env.TOKEN);
 require("http").createServer((_, res) => res.end("Acroga Online!")).listen(process.env.PORT || 8080)

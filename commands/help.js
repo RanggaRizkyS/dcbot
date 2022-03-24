@@ -4,17 +4,15 @@ exports.execute = async (client, message, args) => {
     const embed = new MessageEmbed()
         .setTitle("Acroga || HELP")
         .addFields(
-	    { name: "Economy 🪙", value: "**daily, weekly, work, coinflip, buy, roll**" },
+	    { name: "Economy 🪙", value: "**daily, weekly, work**" },
 	    { name: "Pet 🦬", value: "**zoo, zooshop, zoobuy, hunting**" },
-	    { name: "System 🛠", value: "**memory, ping, help**" },
-	    { name: "Admin 🧰", value: "**addmoney, setmoney, ban**" },
+	    { name: "System 🛠", value: "**ping, help**" },
+	    { name: "Admin 🧰", value: "**addmoney, setmoney**" },
 	)
         .setColor("#8F00FF")
-	.setAuthor("Help")
-	.setURL("https://acroga.xyz/help.html")
+	.setURL("https://acroga.xyz/pages/help/help.html")
         .setTimestamp()
         .setThumbnail(client.user.displayAvatarURL)
-        .setFooter("acroga.xyz/how-to-get-money.html");
     message.channel.send(embed);
 }
 

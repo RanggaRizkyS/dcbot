@@ -12,7 +12,7 @@ client.on("guildCreate", (guild) => {
     .setTitle(`Joined Guild: ${guild.name}!`)
     .setTimestamp()
     console.log(`Joined New Guild: ${guild.name}`);
-    jsArr.guildsTotal += 1
+    jsArr.guildsTotal += 1;
     client.channels.cache.get(`956374074362322954`).send(EmbedJoin)
 });
 client.commands = new Discord.Collection();

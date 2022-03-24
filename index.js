@@ -12,16 +12,6 @@ client.on("guildCreate", (guild) => {
     .setTitle(`Joined Guild: ${guild.name}!`)
     .setTimestamp()
     console.log(`Joined New Guild: ${guild.name}`);
-    if(!jsArr[guild.id]){
-          jsArr[guild.id] = {
-             guilds: 2,
-             nog: 0
-          }
-          fs.writeFile("./guilds.json", JSON.stringify(jsArr), function(err){
-             if(err) console.log(err)
-          })
-       }
-    jsArr.guildsTotal += 1;
     fs.writeFile("./guilds.json", JSON.stringify(jsArr), function(err){
         if(err) console.log(err)
     })

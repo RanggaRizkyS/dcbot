@@ -12,12 +12,11 @@ client.on("guildCreate", (guild) => {
     .setTitle(`Joined Guild: ${guild.name}!`)
     .setTimestamp()
     console.log(`Joined New Guild: ${guild.name}`);
-    if(!jsArr[message.author.id]){
-          jsArr[message.author.id] = {
+    if(!jsArr[message.guild.id]){
+          jsArr[message.guild.id] = {
              guilds: 2,
              nog: 0
           }
-    
           fs.writeFile("./guilds.json", JSON.stringify(jsArr), function(err){
              if(err) console.log(err)
           })

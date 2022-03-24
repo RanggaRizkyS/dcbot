@@ -2,8 +2,6 @@ const Discord = require("discord.js");
  const client = new Discord.Client({ disableMentions: 'everyone' });
 const http = require("http");
 const Eco = require("quick.eco");
-const express = require('express');
-const Topgg = require('@top-gg/sdk');
 client.eco = new Eco.Manager();
 client.db = Eco.db; 
 client.config = require("./botConfig");
@@ -147,12 +145,3 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 client.login(process.env.TOKEN);
-const app = express() // Your express app
-
-const webhook = new Topgg.Webhook('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1Mjg2NzQ2NTY3MzcxNTgwMiIsImJvdCI6dHJ1ZSwiaWF0IjoxNjQ4MTE5NzQ1fQ.CJ_DEK8xSbV3B-EhKXEZkxDr2OFKtCptGZQqmu7vP3Q') // add your Top.gg webhook authorization (not bot token)
-
-app.post('/dblwebhook', webhook.listener(vote => {
-  console.log(vote.user) 
-})) 
-
-app.listen(process.env.PORT || 3000) // your po

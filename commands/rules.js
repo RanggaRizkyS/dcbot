@@ -10,7 +10,6 @@ exports.execute = (client, message, args) => {
             .setColor("#8F00FF")
             .setTimestamp();
         message.channel.send(embed);
-    });
 }
 
 exports.help = {

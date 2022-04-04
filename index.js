@@ -18,54 +18,6 @@ client.on("guildCreate", (guild) => {
     client.channels.cache.get(`956374074362322954`).send(EmbedJoin)
 });
 
-client.on('messageReactionAdd', async (reaction, user) => {
-    if (user.partial) await user.fetch();
-    if (reaction.partial) await reaction.fetch();
-    if (reaction.message.partial) await reaction.message.fetch();
-    if (user.bot) return; {
-        let ticketid = await db.get(`tickets_${reaction.message.guild.id}`);
-        if (!ticketid) return;
-        if (reaction.message.id == ticketid && reaction.emoji.name == ':tickets:') {
-            db.add(`ticketnumber_${reaction.message.guild.id}`, 1)
-            let ticketnumber = await db.get(`ticketnumber_${reaction.message.guild.id}`)
-            if (ticketnumber === null) ticketnumber = "1"
-            reaction.users.remove(user);
-            let CH = message.guild.channels.find(r => r.id == '960537704322449438');
-            if (!CH) return;
-            reaction.message.guild.channels.create(`ticket-${ticketnumber}`, {
-                type: 'text', parent: CH, reason: 'Reaction Tickets System',
-                permissionOverwrites: [
-                    {
-                        id: user.id,
-                        allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
-                    },
-                    {
-                        id: reaction.message.guild.roles.everyone,
-                        deny: ["VIEW_CHANNEL"]
-                    }
-                ],
-                type: 'text'
-            }).then(async channel => {
-                let data = {
-                    channelid: channel.id
-                }
-                db.push(`tickets`, data).then(console.log)
-                channel.send(`<@${user.id}>`).then(log => { db.set(`mention_${channel.id}`, log.id) })
-                db.set(`ticketauthor_${channel.id}`, user.id)
-                let icon = reaction.message.guild.iconURL()
-                let ticketmsg = await channel.send(new Discord.MessageEmbed()
-                    .setTitle(`${user.username} Ticket`)
-                    .setDescription("We are going to contact you as soon\n Click the reaction to close the ticket:closed_lock_with_key:")
-                    .setFooter(reaction.message.guild.name, icon)
-                    .setTimestamp()
-                );
-                ticketmsg.react(':closed_lock_with_key:')
-                console.log(`${ticketmsg.id}`)
-                db.set(`closeticket_${channel.id}`, ticketmsg.id)
-            })
-        }
-    }
-});
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.shop = {
